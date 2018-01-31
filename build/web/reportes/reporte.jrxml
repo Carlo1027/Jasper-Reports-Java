@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<style name="Title" forecolor="#000000" fontName="Trebuchet MS" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Trebuchet MS" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Trebuchet MS" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Trebuchet MS" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Trebuchet MS" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     DATOS_DIGITACION."SERIALDOCU" AS DATOS_DIGITACION_SERIALDOCU,
+     DATOS_DIGITACION."FECHADOCU" AS DATOS_DIGITACION_FECHADOCU,
+     DATOS_DIGITACION."FECHADOCU1" AS DATOS_DIGITACION_FECHADOCU1,
+     DATOS_DIGITACION."FOLIOS" AS DATOS_DIGITACION_FOLIOS,
+     DATOS_DIGITACION."RANGOINF" AS DATOS_DIGITACION_RANGOINF,
+     DATOS_DIGITACION."RANGOSUP" AS DATOS_DIGITACION_RANGOSUP,
+     DATOS_DIGITACION."CAJA" AS DATOS_DIGITACION_CAJA,
+     DATOS_DIGITACION."PAQUETE" AS DATOS_DIGITACION_PAQUETE
+FROM
+     "DB2ADMIN"."DATOS_DIGITACION" DATOS_DIGITACION]]>
+	</queryString>
+	<field name="DATOS_DIGITACION_SERIALDOCU" class="java.lang.String"/>
+	<field name="DATOS_DIGITACION_FECHADOCU" class="java.sql.Date"/>
+	<field name="DATOS_DIGITACION_FECHADOCU1" class="java.sql.Date"/>
+	<field name="DATOS_DIGITACION_FOLIOS" class="java.math.BigDecimal"/>
+	<field name="DATOS_DIGITACION_RANGOINF" class="java.math.BigDecimal"/>
+	<field name="DATOS_DIGITACION_RANGOSUP" class="java.math.BigDecimal"/>
+	<field name="DATOS_DIGITACION_CAJA" class="java.math.BigDecimal"/>
+	<field name="DATOS_DIGITACION_PAQUETE" class="java.math.BigDecimal"/>
+	<pageHeader>
+		<band height="121" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="523" splitType="Stretch">
+			<rectangle>
+				<reportElement x="283" y="381" width="142" height="94"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="107" y="381" width="142" height="94"/>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="207" y="256" width="249" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_FOLIOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="47" y="182" width="148" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[SERIE DOCUMENTAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="47" y="256" width="148" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[FOLIOS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="47" y="294" width="148" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[RANGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="207" y="294" width="62" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[DEL N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="363" y="294" width="62" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[AL N°]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="274" y="294" width="83" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_RANGOINF}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="427" y="294" width="83" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_RANGOSUP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="207" y="184" width="249" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_SERIALDOCU}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="283" y="381" width="144" height="94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="60" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_PAQUETE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="105" y="381" width="144" height="94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="60" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_CAJA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="105" y="348" width="144" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="283" y="348" width="144" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[PAQUETE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="343" y="221" width="113" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_FECHADOCU1}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="83" y="38" width="393" height="120"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Carlo Castro\\Documents\\NetBeansProjects\\DatosArnebuk\\web\\reportes\\titulo.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement mode="Transparent" x="34" y="17" width="486" height="479"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="47" y="221" width="148" height="20" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Trebuchet MS" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[FECHAS EXTREMAS:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="207" y="221" width="113" height="18"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DATOS_DIGITACION_FECHADOCU}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
